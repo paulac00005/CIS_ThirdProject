@@ -1,64 +1,40 @@
 package com.example.paulac.cis;
 
-import android.app.ProgressDialog;
-import android.content.DialogInterface;
-import android.os.AsyncTask;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 
-public class Login extends AppCompatActivity implements View.OnClickListener {
+import com.android.volley.RequestQueue;
+import com.android.volley.toolbox.StringRequest;
+import com.android.volley.toolbox.Volley;
 
-    EditText username, password;
-    Button login;
+public class Login extends AppCompatActivity {
+
+    private EditText username, password;
+    private Button login;
+    private RequestQueue requestQueue;
+    private static final String url = "http://10.4.101.44/sbs/login.php";
+    private StringRequest stringRequest;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_login);
 
-        username = (EditText)findViewById(R.id.username);
-        password = (EditText)findViewById(R.id.password);
-        login = (Button)findViewById(R.id.login);
-        login.setOnClickListener(this);
-    }
+        username = (EditText) findViewById(R.id.username);
+        password = (EditText) findViewById(R.id.password);
+        login = (Button) findViewById(R.id.login);
 
-    @Override
-    public void onClick(View sender) {
-        if(sender.getId() == R.id.login){
-            LoginTask loginTask = new LoginTask();
-            loginTask.execute("http://10.4.101.44/sbs/login.php");
-        }
-    }
+        requestQueue = Volley.newRequestQueue(this);
 
-    private class LoginTask extends AsyncTask <String, Void, Void> implements Login2 {
-
-        ProgressDialog dialog = new ProgressDialog(Login.this);
-
-        @Override
-        public void onPreExecute(){
-            dialog.setMessage("Sending Data");
-            dialog.show();
-        }
-        Boolean result = false;
-
-        @Override
-        protected Void doInBackground(String... params) {
-            return null;
-        }
-
-        @Override
-        public void onPostExecute(){
-            if(result==true){
+        login.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
 
             }
-        }
-
+        });
     }
 
-    protected void onPostExecute(Void arg0){
-
-    }
 }
