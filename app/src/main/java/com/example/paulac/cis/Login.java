@@ -11,14 +11,17 @@ import android.widget.Toast;
 
 import org.apache.http.HttpResponse;
 import org.apache.http.NameValuePair;
+import org.apache.http.client.ClientProtocolException;
 import org.apache.http.client.HttpClient;
 import org.apache.http.client.entity.UrlEncodedFormEntity;
 import org.apache.http.client.methods.HttpPost;
 import org.apache.http.impl.client.DefaultHttpClient;
 import org.apache.http.message.BasicNameValuePair;
 
+import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStream;
+import java.io.InputStreamReader;
 import java.io.UnsupportedEncodingException;
 import java.util.ArrayList;
 
@@ -30,7 +33,9 @@ public class Login extends AppCompatActivity implements View.OnClickListener {
     private static final String login_url = "http://10.4.101.44/sbs/login.php";
     protected final String key = "70930f27";
 
+    private String error;
     InputStream is1;
+    String text;
 
 
     @Override
@@ -92,15 +97,30 @@ public class Login extends AppCompatActivity implements View.OnClickListener {
                     HttpPost post = new HttpPost(url1);
                     post.setEntity(new UrlEncodedFormEntity(pairs));
                     HttpResponse response = client.execute(post);
+                    is1 = response.getEntity().getContent();
 
                     result = true;
-                } catch (UnsupportedEncodingException e) {
-                    Toast.makeText(Login.this, e.toString(), Toast.LENGTH_LONG).show();
+                } catch (ClientProtocolException e) {
+                    error +=  "\nClientProtocolException: " + e.getMessage();
                 } catch (IOException e) {
-                    Toast.makeText(Login.this, e.toString(), Toast.LENGTH_LONG).show();
+                    error +=  "\nClientProtocolException: " + e.getMessage();
                 }
 
             }
+
+            try{
+                BufferedReader reader = new BufferedReader(new InputStreamReader(is1, "iso-8859-1"),8);
+                String line = null;
+
+                while(true){
+                    text += line + "\n";
+                }
+            } catch (UnsupportedEncodingException e) {
+                e.printStackTrace();
+            } catch (IOException e) {
+                e.printStackTrace();
+            }
+
             return null;
         }
 
