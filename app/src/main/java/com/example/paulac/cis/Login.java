@@ -1,41 +1,23 @@
 package com.example.paulac.cis;
 
-import android.app.ProgressDialog;
-import android.os.AsyncTask;
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
-import android.widget.Toast;
-
-import org.apache.http.HttpResponse;
-import org.apache.http.NameValuePair;
-import org.apache.http.client.ClientProtocolException;
-import org.apache.http.client.HttpClient;
-import org.apache.http.client.entity.UrlEncodedFormEntity;
-import org.apache.http.client.methods.HttpPost;
-import org.apache.http.impl.client.DefaultHttpClient;
-import org.apache.http.message.BasicNameValuePair;
-
-import java.io.BufferedReader;
-import java.io.IOException;
-import java.io.InputStream;
-import java.io.InputStreamReader;
-import java.io.UnsupportedEncodingException;
-import java.util.ArrayList;
 
 
-public class Login extends AppCompatActivity implements View.OnClickListener {
+public class Login extends AppCompatActivity {
 
     private EditText Username, Password;
     private Button login;
     private static final String login_url = "http://10.4.101.44/sbs/login.php";
     protected final String key = "70930f27";
 
-    private String error;
+    /*private String error;
     InputStream is1;
-    String text;
+    String text;*/
 
 
     @Override
@@ -46,10 +28,60 @@ public class Login extends AppCompatActivity implements View.OnClickListener {
         Username = (EditText) findViewById(R.id.username);
         Password = (EditText) findViewById(R.id.password);
         login = (Button) findViewById(R.id.login);
-        login.setOnClickListener(this);
     }
 
-    @Override
+    public void signup(View v){
+        Intent i = new Intent(this, SignUp.class);
+        startActivity(i);
+    }
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    /*@Override
     public void onClick(View v) {
         if (v.getId() == R.id.login) {
             SignUpTask signUpTask = new SignUpTask();
@@ -68,20 +100,12 @@ public class Login extends AppCompatActivity implements View.OnClickListener {
             dialog.show();
         }
 
-        @Override
-        protected void onPostExecute(Boolean aBoolean) {
-            if(result == true){
-                Toast.makeText(Login.this, "Inserted", Toast.LENGTH_LONG).show();
-            }else{
-                Toast.makeText(Login.this, "Error inserting data . . .", Toast.LENGTH_SHORT).show();
-            }
-            dialog.dismiss();
-        }
 
-        Boolean result = false;
+            Boolean result = false;
 
-        String u = Username.getText().toString();
-        String p = Password.getText().toString();
+            String u = Username.getText().toString();
+            String p = Password.getText().toString();
+
 
         @Override
         protected Boolean doInBackground(String... url) {
@@ -112,7 +136,8 @@ public class Login extends AppCompatActivity implements View.OnClickListener {
                 BufferedReader reader = new BufferedReader(new InputStreamReader(is1, "iso-8859-1"),8);
                 String line = null;
 
-                while(true){
+                while(true)
+                {
                     text += line + "\n";
                 }
             } catch (UnsupportedEncodingException e) {
@@ -124,5 +149,23 @@ public class Login extends AppCompatActivity implements View.OnClickListener {
             return null;
         }
 
+        @Override
+        protected void onPostExecute(Boolean aBoolean) {
+            if (dialog.isShowing()) {
+                dialog.dismiss();
+            }
+
+            text = text.trim();
+
+            Toast.makeText(Login.this, text, Toast.LENGTH_LONG).show();
+
+            if (text.equals("login_success")) {
+                Intent in = new Intent(Login.this, Draft.class);
+                startActivity(in);
+            } else {
+                Toast.makeText(Login.this, "Login Failed", Toast.LENGTH_SHORT).show();
+            }
+        }
+
     }
-}
+}*/

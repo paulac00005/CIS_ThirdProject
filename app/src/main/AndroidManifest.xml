@@ -2,7 +2,7 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="com.example.paulac.cis" >
 
-    <uses-permission android:name="android.permission.INTERNET"></uses-permission>
+    <uses-permission android:name="android.permission.INTERNET" />
 
     <application
         android:allowBackup="true"
@@ -17,9 +17,14 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".Login" >
+        <activity android:name=".Login"
+            android:label="Login">
         </activity>
-        <activity android:name=".Draft" >
+        <activity android:name=".Draft"
+            android:label="Draft">
+        </activity>
+        <activity android:name=".SignUp"
+            android:label="Sign Up">
         </activity>
     </application>
 

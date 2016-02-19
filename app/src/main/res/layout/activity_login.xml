@@ -130,6 +130,7 @@
             android:layout_height="wrap_content"
             android:text="SIGN UP"
             android:id="@+id/textView5"
+            android:onClick="signup"
             android:textSize="15dp"
             android:textColor="#0b8ecb"
             android:layout_alignBaseline="@+id/textView6"
