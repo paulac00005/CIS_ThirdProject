@@ -2,10 +2,17 @@ package com.example.paulac.cis;
 
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
+import android.view.View;
 import android.widget.ArrayAdapter;
+import android.widget.Button;
+import android.widget.EditText;
 import android.widget.Spinner;
 
-public class SignUp extends AppCompatActivity {
+public class SignUp extends AppCompatActivity implements View.OnClickListener {
+
+
+    EditText etUsername, etPassword, etReenter,  etAnswer;
+    Button signup, cam, gallery;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -21,7 +28,27 @@ public class SignUp extends AppCompatActivity {
         ArrayAdapter<String> adapter = new ArrayAdapter<String>(this, android.R.layout.simple_spinner_dropdown_item, questions);
         security.setAdapter(adapter);
 
+        etUsername = (EditText)findViewById(R.id.etUsername);
+        etPassword = (EditText)findViewById(R.id.etPassword);
+        etReenter = (EditText)findViewById(R.id.etReenter);
+        etAnswer = (EditText)findViewById(R.id.etAnswer);
+        cam = (Button)findViewById(R.id.camera);
+        gallery = (Button)findViewById(R.id.gallery);
+        signup = (Button)findViewById(R.id.signup);
+
+
+        cam.setOnClickListener(this);
+        gallery.setOnClickListener(this);
+        signup.setOnClickListener(this);
+
     }
 
+    @Override
+    public void onClick(View v) {
+        switch(v.getId()){
+            case R.id.signup:
 
+                break;
+        }
+    }
 }

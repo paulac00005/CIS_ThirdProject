@@ -8,7 +8,7 @@ import android.widget.Button;
 import android.widget.EditText;
 
 
-public class Login extends AppCompatActivity {
+public class Login extends AppCompatActivity implements View.OnClickListener {
 
     private EditText Username, Password;
     private Button login;
@@ -28,11 +28,23 @@ public class Login extends AppCompatActivity {
         Username = (EditText) findViewById(R.id.username);
         Password = (EditText) findViewById(R.id.password);
         login = (Button) findViewById(R.id.login);
+
+        login.setOnClickListener(this);
     }
 
     public void signup(View v){
         Intent i = new Intent(this, SignUp.class);
         startActivity(i);
+    }
+
+    @Override
+    public void onClick(View v) {
+        switch(v.getId()){
+            case R.id.login:
+
+
+                break;
+        }
     }
 }
 

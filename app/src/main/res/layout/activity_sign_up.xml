@@ -10,7 +10,6 @@
 
     <LinearLayout
         android:layout_gravity="center_horizontal"
-        android:layout_marginTop="15dp"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:orientation="vertical">
@@ -74,7 +73,7 @@
             android:layout_height="wrap_content"
             android:inputType="textPersonName"
             android:ems="10"
-            android:id="@+id/editText"
+            android:id="@+id/etUsername"
             android:layout_gravity="right" />
 
         <LinearLayout
@@ -104,7 +103,7 @@
             android:layout_height="wrap_content"
             android:inputType="textPassword"
             android:ems="10"
-            android:id="@+id/editText2"
+            android:id="@+id/etPassword"
             android:layout_gravity="right" />
 
         <LinearLayout
@@ -134,7 +133,7 @@
             android:layout_height="wrap_content"
             android:inputType="textPassword"
             android:ems="10"
-            android:id="@+id/editText3"
+            android:id="@+id/etReenter"
             android:layout_gravity="center_horizontal|right" />
 
         <LinearLayout
@@ -191,7 +190,7 @@
         <EditText
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:id="@+id/editText4"
+            android:id="@+id/etAnswer"
             android:layout_gravity="right" />
 
         <LinearLayout
@@ -223,7 +222,7 @@
                 android:text="C a m e r a"
                 android:layout_marginRight="2dp"
                 android:background="#368BC1"
-                android:id="@+id/button2"
+                android:id="@+id/camera"
                 android:layout_gravity="center_horizontal"
                 android:textColor="#ffffff" />
 
@@ -234,10 +233,22 @@
                 android:layout_height="30dp"
                 android:text="G A L L E R Y"
                 android:background="#368BC1"
-                android:id="@+id/button"
+                android:id="@+id/gallery"
                 android:textColor="#ffffff" />
 
         </LinearLayout>
+
+
+        <Button
+            android:layout_marginTop="15dp"
+            android:layout_width="match_parent"
+            android:layout_height="30dp"
+            android:text="S I G N   U P"
+            android:textStyle="bold"
+            android:textColor="#ffffff"
+            android:background="#368BC1"
+            android:orientation="vertical"
+            android:id="@+id/signup" />
 
 
 
